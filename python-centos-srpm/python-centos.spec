@@ -26,6 +26,7 @@ Requires:   python2-requests
 Requires:   python2-urllib3
 Requires:   python2-lockfile
 Requires:   python2-kitchen
+%{?python_provide:%python_provide python2-%{pypi_name}}
 
 %description -n python2-%{pypi_name}
 Provides python bindings for the infrastructure services in the CentOS

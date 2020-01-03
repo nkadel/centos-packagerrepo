@@ -16,8 +16,8 @@ Requires:       rpm-build rpmdevtools rpmlint
 Requires:       mock curl openssh-clients
 Requires:       redhat-rpm-config
 Requires:       python2-centos
-
 BuildArch:      noarch
+%{?python_provide:%python_provide python2-%{pypi_name}}
 
 %description
 Tools to help set up a CentOS packaging environment
