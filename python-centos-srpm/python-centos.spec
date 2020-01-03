@@ -2,7 +2,7 @@
 
 Name:		python-%{pypi_name}
 Version:	0.1.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Python bindings for the CentOS account system, CBS and other services
 
 Group:		Applications/System
@@ -47,6 +47,11 @@ project
 %{python2_sitelib}/*
 
 %changelog
+* Fri Jan 3 2019 Nico Kadel-Garcia  <nkadel@gmail.com> 0.1.1-2
+- Port to RHEL 8 and Fedora
+- Specifically build as python2- package with python2- dependencies
+
+
 * Tue Jul 05 2016 brian@bstinson.com 0.1.1-1
 - Fix CentOSUserCert to verify as false if the cert is expired
 

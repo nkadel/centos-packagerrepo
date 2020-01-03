@@ -1,7 +1,6 @@
 Name:           centos-packager
 Version:        0.5.5
-#Release:        2%%{?dist}
-Release:        0%{?dist}
+Release:        3%%{?dist}
 Summary:        Tools and files necessary for building CentOS packages
 Group:          Applications/Productivity
 
@@ -11,17 +10,19 @@ Source0:        cbs-koji.conf
 Source1:        COPYING
 Source2:        centos-cert
 
+Requires:       curl
 Requires:       koji
-Requires:       rpm-build rpmdevtools rpmlint
-Requires:       mock curl openssh-clients
-Requires:       redhat-rpm-config
+Requires:       mock
+Requires:       openssh-clients
 Requires:       python2-centos
+Requires:       redhat-rpm-config
+Requires:       rpm-build
+Requires:       rpmdevtools
+Requires:       rpmlint
 BuildArch:      noarch
-%{?python_provide:%python_provide python2-%{pypi_name}}
 
 %description
 Tools to help set up a CentOS packaging environment
-
 
 %prep
 cp %{SOURCE1} .
@@ -45,6 +46,10 @@ ln -sf %{_bindir}/koji %{buildroot}%{_bindir}/cbs
 %{_bindir}/centos-cert
 
 %changelog
+* Fri Jan 3 2019 Nico Kadel-Garcia <nkadel@gmail.com> 0.5.5-3
+- Port to RHEL 8 and Fedora
+- Specifically build as python2- package with python2- dependencies
+
 * Wed Jul 19 2017 brian@bstinson.com 0.5.5-2
 - Bumpspec to rebuild for F26
 
